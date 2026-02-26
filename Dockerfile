@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get install -y libsecp256k1-0 libsodium23
 RUN go build -o /tmp/opentonapi github.com/tonkeeper/opentonapi/cmd/api
 
-FROM ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214 as runner
+FROM ubuntu:24.04@sha256:d1e2e92c075e5ca139d51a140fff46f84315c0fdce203eab2807c7e495eff4f9 as runner
 RUN apt-get update && \
     apt-get install -y openssl ca-certificates libsecp256k1-0 libsodium23 wget && \
     rm -rf /var/lib/apt/lists/*

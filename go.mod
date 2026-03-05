@@ -21,7 +21,7 @@ require (
 	github.com/ogen-go/ogen v1.0.0
 	github.com/prometheus/client_golang v1.14.0
 	github.com/puzpuzpuz/xsync/v2 v2.5.1
-	github.com/shopspring/decimal v1.3.1
+	github.com/shopspring/decimal v1.4.0
 	github.com/sourcegraph/conc v0.3.0
 	github.com/stretchr/testify v1.9.0
 	github.com/tonkeeper/scam_backoffice_rules v0.0.8

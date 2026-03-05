@@ -1,4 +1,4 @@
-FROM docker.io/library/golang:1.22.9-bullseye@sha256:8a6a0c7189203ffd50b86839aee70b2b874800d6acccdefd1200148538d9eb5d AS gobuild
+FROM docker.io/library/golang:1.24.6-bullseye@sha256:2cdc80dc25edcb96ada1654f73092f2928045d037581fa4aa7c40d18af7dd85a AS gobuild
 WORKDIR /build-dir
 COPY go.mod .
 COPY go.sum .

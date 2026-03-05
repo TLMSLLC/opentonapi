@@ -6,6 +6,7 @@ import (
 	"errors"
 	internalErrors "github.com/tonkeeper/opentonapi/pkg/pusher/errors"
 	"net/http"
+	"strings"
 
 	"github.com/ogen-go/ogen/middleware"
 	"github.com/ogen-go/ogen/ogenerrors"
@@ -14,6 +15,12 @@ import (
 	"github.com/tonkeeper/opentonapi/pkg/oas"
 	"go.uber.org/zap"
 )
+
+func sanitizeLogString(s string) string {
+	s = strings.ReplaceAll(s, "\n", "")
+	s = strings.ReplaceAll(s, "\r", "")
+	return s
+}
 
 func ogenLoggingMiddleware(logger *zap.Logger) middleware.Middleware {
 	return func(req middleware.Request, next middleware.Next) (middleware.Response, error) {
@@ -45,7 +52,7 @@ func asyncLoggingMiddleware(logger *zap.Logger) func(next AsyncHandler) AsyncHan
 		return func(w http.ResponseWriter, r *http.Request, connectionType int, allowTokenInQuery bool) error {
 			logger := logger.With(
 				zap.String("operation", asyncOperation(r)),
-				zap.String("path", r.URL.Path),
+				zap.String("path", sanitizeLogString(r.URL.Path)),
 			)
 			logger.Info("Handling request")
 			if err := next(w, r, connectionType, allowTokenInQuery); err != nil {

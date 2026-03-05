@@ -3,6 +3,7 @@ package sources
 import (
 	"context"
 	"fmt"
+	"strings"
 
 	"github.com/tonkeeper/opentonapi/pkg/blockchain/indexer"
 	"github.com/tonkeeper/tongo/abi"
@@ -43,11 +44,18 @@ var _ BlockHeadersSource = (*BlockchainSource)(nil)
 var _ TransactionSource = (*BlockchainSource)(nil)
 
 func (b *BlockchainSource) SubscribeToTransactions(ctx context.Context, deliveryFn DeliveryFn, opts SubscribeToTransactionsOptions) CancelFn {
+	sanitizedOps := make([]string, len(opts.Operations))
+	for i, op := range opts.Operations {
+		// remove line breaks to prevent log forging via user-controlled operations
+		op = strings.ReplaceAll(op, "\n", "")
+		op = strings.ReplaceAll(op, "\r", "")
+		sanitizedOps[i] = op
+	}
 	b.logger.Debug("subscribe to transactions",
 		zap.Bool("all-accounts", opts.AllAccounts),
 		zap.Bool("all-operations", opts.AllOperations),
 		zap.Stringers("accounts", opts.Accounts),
-		zap.Strings("operations", opts.Operations))
+		zap.Strings("operations", sanitizedOps))
 
 	return b.txDispatcher.RegisterSubscriber(deliveryFn, opts)
 }

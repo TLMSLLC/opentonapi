@@ -3,7 +3,7 @@ module github.com/tonkeeper/opentonapi
 go 1.25.0
 
 require (
-	github.com/BurntSushi/toml v1.2.1
+	github.com/BurntSushi/toml v1.6.0
 	github.com/Code-Hex/go-generics-cache v1.3.0
 	github.com/Narasimha1997/ratelimiter v1.1.1
 	github.com/avast/retry-go v3.0.0+incompatible

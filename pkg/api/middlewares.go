@@ -51,7 +51,7 @@ func asyncLoggingMiddleware(logger *zap.Logger) func(next AsyncHandler) AsyncHan
 	return func(next AsyncHandler) AsyncHandler {
 		return func(w http.ResponseWriter, r *http.Request, connectionType int, allowTokenInQuery bool) error {
 			logger := logger.With(
-				zap.String("operation", asyncOperation(r)),
+				zap.String("operation", sanitizeLogString(asyncOperation(r))),
 				zap.String("path", sanitizeLogString(r.URL.Path)),
 			)
 			logger.Info("Handling request")

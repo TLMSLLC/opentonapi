@@ -37,9 +37,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses:- uses:- uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c # v44
-      with: dotnet-version: ^
-          5.0.x
-          6.0.x
+      with: dotnet-version: 5.0.x 6.0.x
     - name: Run Microsoft Security DevOps
       uses: microsoft/security-devops-action@v1.6.0
       id: msdo

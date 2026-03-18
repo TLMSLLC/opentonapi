@@ -6433,7 +6433,6 @@ func (s *Server) FindPath(method string, u *url.URL) (r Route, _ bool) {
 
 				elem = origElem
 			case 'o': // Prefix: "openapi."
-				origElem := elem
 				if l := len("openapi."); len(elem) >= l && elem[0:l] == "openapi." {
 					elem = elem[l:]
 				} else {
@@ -6496,7 +6495,6 @@ func (s *Server) FindPath(method string, u *url.URL) (r Route, _ bool) {
 					elem = origElem
 				}
 
-				elem = origElem
 			case 'p': // Prefix: "pu"
 				origElem := elem
 				if l := len("pu"); len(elem) >= l && elem[0:l] == "pu" {

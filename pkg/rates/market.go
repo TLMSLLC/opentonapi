@@ -295,7 +295,7 @@ func convertBitFinexResponse(respBody []byte) (float64, error) {
 	if len(prices) == 0 {
 		return 0, fmt.Errorf("[convertBitFinexResponse] empty data")
 	}
-	if len(prices) >= 6 { // Price of the last trade
+	if len(prices) > 6 { // Price of the last trade
 		return prices[6], nil
 	}
 	// Price of last highest bid

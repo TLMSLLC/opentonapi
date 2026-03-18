@@ -26,7 +26,7 @@ func ogenLoggingMiddleware(logger *zap.Logger) middleware.Middleware {
 	return func(req middleware.Request, next middleware.Next) (middleware.Response, error) {
 		logger := logger.With(
 			zap.String("operation", req.OperationName),
-			zap.String("path", req.Raw.URL.Path),
+			zap.String("path", sanitizeLogString(req.Raw.URL.Path)),
 		)
 		logger.Info("Handling request")
 		resp, err := next(req)

@@ -1385,7 +1385,6 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 					elem = origElem
 				}
 
-				origElem := elem
 				if l := len("dns/"); len(elem) >= l && elem[0:l] == "dns/" {
 					elem = elem[l:]
 				} else {

@@ -9,7 +9,7 @@ require (
 	github.com/avast/retry-go v3.0.0+incompatible
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/cespare/xxhash/v2 v2.3.0
-	github.com/getsentry/sentry-go v0.24.1
+	github.com/getsentry/sentry-go v0.46.2
 	github.com/ghodss/yaml v1.0.0
 	github.com/go-faster/errors v0.7.1
 	github.com/go-faster/jx v1.1.0

@@ -24,9 +24,9 @@ require (
 	github.com/stretchr/testify v1.11.1
 	github.com/tonkeeper/scam_backoffice_rules v0.0.11
 	github.com/tonkeeper/tongo v1.18.4
-	go.opentelemetry.io/otel v1.42.0
-	go.opentelemetry.io/otel/metric v1.42.0
-	go.opentelemetry.io/otel/trace v1.42.0
+	go.opentelemetry.io/otel v1.43.0
+	go.opentelemetry.io/otel/metric v1.43.0
+	go.opentelemetry.io/otel/trace v1.43.0
 	go.uber.org/multierr v1.11.0
 	go.uber.org/zap v1.27.1
 	golang.org/x/exp v0.0.0-20240808152545-0cdaa3abc0fa
